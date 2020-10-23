@@ -12,6 +12,7 @@ class QuestionsToAnswer(ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
+        # Only show the questions that were not already answered by the user
         answered_questions = Answer.objects.filter(user=self.request.user).values_list('question_id')
         qs = qs.exclude(user=self.request.user).exclude(id__in=answered_questions)
         return qs
@@ -34,6 +35,7 @@ class AnswerView(CreateView):
 
     def get(self, request, *args, **kwargs):
         try:
+            # Doesnt allow to answer again a question
             Answer.objects.get(user=request.user, question=int(kwargs['question_id']))
             return redirect('/')
         except Answer.DoesNotExist:

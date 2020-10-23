@@ -20,15 +20,18 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ('question_text', )
 
     def save_model(self, request, obj: Question, form, change):
+        # user field is not shown in the form, so we populate it here
         obj.user = request.user
         obj.save()
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
+        # Only shows the user created questions
         qs = qs.filter(user=request.user)
         return qs
 
     def answers(self, obj):
+        """Returns a string with the number of votes on each choice."""
         return "\n".join([f'{choice.choice_text}: {len(choice.answer_set.all())}' for choice in obj.choice_set.all()])
 
 
@@ -40,6 +43,7 @@ class AnswerAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
+        # Only shows user answers
         qs = qs.filter(user=request.user)
         return qs
 
@@ -50,6 +54,7 @@ class AnswerAdmin(admin.ModelAdmin):
         return obj.choice.choice_text
 
     def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
+        # Only shows the choices for the given question
         context['adminform'].form.fields['choice'].queryset = Choice.objects.filter(question=obj.question)
         return super().render_change_form(request, context, add=add, change=change, form_url=form_url, obj=obj)
 

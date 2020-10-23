@@ -17,5 +17,6 @@ class SignUpUserForm(UserCreationForm):
 
     def save(self, commit=True):
         user: User = super().save(commit)
+        # Giving the user accces to the models of the polls
         user.user_permissions.add(*Question.get_permissions(), *Choice.get_permissions(), *Answer.get_permissions())
         return user
