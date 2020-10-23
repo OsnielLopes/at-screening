@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'poller_app.apps.PollerAppConfig',
+    'poller_project.poller_app.apps.PollerAppConfig',
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +123,9 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+
+# Django suit
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Django Suit'
+}
