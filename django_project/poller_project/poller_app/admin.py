@@ -6,9 +6,6 @@ from .models import Question, Choice, Answer
 class PollerAdminSite(admin.AdminSite):
     login_template = 'login.html'
 
-    class Meta:
-        pass
-
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
