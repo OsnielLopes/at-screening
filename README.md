@@ -19,6 +19,7 @@ The functional requirements were:
     ```
 4. Migrate the database to create and prepare the schema
     ```bash
+   cd django_project
     python manage.py migrate
     ```
 5. Run the project!
