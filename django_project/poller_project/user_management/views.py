@@ -4,12 +4,12 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import UpdateView
 
-from django_project.user_management.forms import SignUpUserForm
-
-from django_project.poller_app.admin import site
+from .forms import SignUpUserForm
+from ..poller_app.admin import site
 
 
 def signup(request):
+    """View for signing up"""
     if request.method == 'POST':
         form = SignUpUserForm(request.POST)
         if form.is_valid():
