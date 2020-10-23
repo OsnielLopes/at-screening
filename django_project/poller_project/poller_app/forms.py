@@ -19,7 +19,7 @@ class AnswerForm(forms.ModelForm):
         question_text = Question.objects.get(id=question_id).question_text
         self.fields['question_text'].initial = question_text
         self.fields['question_text'].widget.attrs['disabled'] = True
-        self.fields['question_text'].widget.attrs['size'] = len(question_text)
+        self.fields['question_text'].widget.attrs['size'] = len(question_text)*1.5
         self.fields['choice'].queryset = Choice.objects.filter(question_id=question_id)
 
     class Meta:
