@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from django_project.poller_app.admin import site
+from .poller_app.admin import site
 
 admin.site = site
 admin.autodiscover()
