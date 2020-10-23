@@ -4,9 +4,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import UpdateView
 
-from poller_project.user_management.forms import SignUpUserForm
+from django_project.user_management.forms import SignUpUserForm
 
-from poller_project.poller_app.admin import site
+from django_project.poller_app.admin import site
 
 
 def signup(request):

@@ -1,8 +1,8 @@
 from django.urls import path
 
-from poller_project.user_management.views import signup
+from django_project.user_management.views import signup
 
-from poller_project.user_management.views import UserProfile
+from django_project.user_management.views import UserProfile
 
 urlpatterns = [
     path(r'signup/', signup, name='signup'),

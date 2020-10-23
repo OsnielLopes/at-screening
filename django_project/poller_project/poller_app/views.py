@@ -2,9 +2,9 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import ListView, CreateView
 
-from poller_project.poller_app.models import Question, Answer, Choice
-from poller_project.poller_app.admin import site
-from poller_project.poller_app.forms import AnswerForm
+from .models import Question, Answer
+from .admin import site
+from .forms import AnswerForm
 
 
 class QuestionsToAnswer(ListView):

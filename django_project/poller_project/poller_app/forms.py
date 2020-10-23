@@ -1,6 +1,6 @@
 from django import forms
 
-from poller_project.poller_app.models import Question, Choice, User, Answer
+from .models import Question, Choice, User, Answer
 
 
 class AnswerForm(forms.ModelForm):

@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from poller_project.poller_app.models import Question, Choice, Answer
+from django_project.poller_app.models import Question, Choice, Answer
 
 
 class SignUpUserForm(UserCreationForm):
