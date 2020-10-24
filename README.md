@@ -6,6 +6,8 @@ The functional requirements were:
 
 "A user must register and then log into the system. As long as this user is connected, he can create as many polls (multiple choice) as he wants, in addition to being able to answer polls created by other users."
 
+Video showing the interface and project details (audio in portuguese): [AlphaTrade - Pooler](https://youtu.be/l12WKB68XOU).
+
 ## How to install
 1. Clone this project
     ```bash
